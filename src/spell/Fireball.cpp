@@ -1,14 +1,17 @@
 /*
  * Fireball.cpp
  *
- *  Created on: 28 sept. 2018
+ *  Created on: 8 oct. 2018
  *      Author: 1433081
  */
 
 #include "Fireball.h"
 
 Fireball::Fireball() {
-	// TODO Auto-generated constructor stub
+
+	m_Name = "Fireball";
+	this->m_Damage = 25;
+
 
 }
 

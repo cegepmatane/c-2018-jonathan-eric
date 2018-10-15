@@ -8,6 +8,8 @@
 #ifndef SPELL_H_
 #define SPELL_H_
 #include<string>
+using namespace std;
+
 
 class Spell {
 public:
@@ -18,6 +20,7 @@ public:
 	void setDamage(float damage);
 	const std::string& getName() const;
 	void setName(const std::string& name);
+	virtual string exporter(string);
 
 protected:
 	std::string m_Name;

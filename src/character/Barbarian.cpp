@@ -9,7 +9,8 @@
 
 Barbarian::Barbarian() {
 	// TODO Auto-generated constructor stub
-
+	m_Class = "Barbarian";
+	m_damageBasicAttaque = 25;
 }
 
 Barbarian::~Barbarian() {

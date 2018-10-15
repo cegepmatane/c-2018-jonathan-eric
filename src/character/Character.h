@@ -8,7 +8,7 @@
 #ifndef CHARACTER_CHARACTER_H_
 #define CHARACTER_CHARACTER_H_
 #include "../spell/Spell.h"
-#include <list>
+#include <vector>
 
 #include <iostream>
 using namespace std;
@@ -16,19 +16,27 @@ using namespace std;
 class Character {
 public:
 	Character();
-	~Character();
-	virtual void create(float a_HP);
+	virtual ~Character();
+	virtual void receiveDamage(float damage);
+	virtual void attackTarget(Character &target);
+	virtual string exporter();
+
+	virtual float getDamageBasicAttaque() const;
+	virtual void setDamageBasicAttaque(float damageBasicAttaque);
 	virtual float getHp();
 	virtual void setHp(float a_HP);
 	virtual const std::string getName();
 	virtual void setName(std::string a_name);
-	virtual const list<Spell*>& getSpellListe() const;
-	virtual void setSpellListe(const list<Spell*>& a_spellListe);
+	virtual const vector<Spell*>& getSpellListe() const;
+	virtual void setSpellListe(const vector<Spell*>& a_spellListe);
+	virtual void addSpell(Spell *a_spell);
 
 protected:
 	float m_HP;
 	std::string m_Name;
-	list<Spell*> m_SpellListe;
+	float m_damageBasicAttaque;
+	vector<Spell*> m_SpellListe;
+	std::string m_Class;
 	
 	
 };

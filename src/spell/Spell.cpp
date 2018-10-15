@@ -6,6 +6,8 @@
  */
 
 #include "Spell.h"
+#include "sstream"
+
 
 Spell::Spell() {
 	// TODO Auto-generated constructor stub
@@ -36,4 +38,15 @@ const std::string& Spell::getName() const {
 
 void Spell::setName(const std::string& name) {
 	m_Name = name;
+}
+
+string Spell::exporter(string tabulation)
+{
+    stringstream xml;
+    xml << tabulation + "<Spell>" << endl;
+    xml << tabulation + "\t<name>" << m_Name << "</name>" << endl;
+    xml << tabulation + "\t<damage>" << m_Damage <<"</damage>" << endl;
+
+    xml << tabulation + "</Spell>" << endl;
+    return xml.str();
 }

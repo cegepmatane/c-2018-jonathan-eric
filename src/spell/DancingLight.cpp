@@ -9,7 +9,8 @@
 
 DancingLight::DancingLight() {
 	// TODO Auto-generated constructor stub
-
+	m_Name = "Dancing light";
+	m_Damage = 10;
 }
 
 DancingLight::~DancingLight() {
