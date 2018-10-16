@@ -29,6 +29,22 @@ void Character::attackTarget(Character &target)
 	target.receiveDamage(m_damageBasicAttaque);
 }
 
+void Character::launchSpellAtTarget(Character &target, Spell &spell)
+{
+	target.receiveDamage(spell.getDamage());
+}
+
+Spell& Character::findSpell(std::string name)
+{
+	for (unsigned int i = 0; i < this->m_SpellListe.size() ; i++)
+	{
+		if (this->m_SpellListe[i]->getName() == name)
+			return *m_SpellListe[i];
+	}
+	Spell *spell(0);
+	return *spell;
+}
+
 string Character::exporter()
 {
     stringstream xml;

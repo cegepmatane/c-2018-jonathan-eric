@@ -9,7 +9,7 @@
 
 Archer::Archer() {
 	// TODO Auto-generated constructor stub
-	m_Class = "archer";
+	m_Class = "Archer";
 	m_damageBasicAttaque = 10;
 }
 

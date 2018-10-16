@@ -1,3 +1,5 @@
 Class;Name;HP;Damage attack;Ability
 Barbarian;Dominik;50;10;Smash
 Barbarian;Victor;100;5;
+Mage;Serge;9;6;DancingLight
+Archer;Shin;10;50;

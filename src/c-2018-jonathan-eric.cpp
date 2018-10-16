@@ -59,7 +59,7 @@ int main() {
 
 
 				string value = ligne.substr(positionDebut,positionFin - positionDebut);
-				cout << value << endl;
+				//cout << value << endl;
 
 				switch(indexColum){
 
@@ -127,16 +127,32 @@ int main() {
 	//creation donne test
 
 	Character *barbarian = new Barbarian();
-	barbarian->setHp(18);
+	barbarian->setHp(100);
 	barbarian->setName("Theo");
 
 	Character *mage = new Mage();
-	mage->setHp(10);
+	mage->setHp(50);
 	mage->setName("Bob");
 	mage->addSpell(dancingLight);
 	mage->addSpell(spell);
 
 	//fin creation donne test
+
+
+	//test interaction
+	cout << barbarian->exporter() << endl;
+	cout << mage->exporter() << endl;
+
+	cout << "barbarian attack mage for " << barbarian->getDamageBasicAttaque() << endl;
+	barbarian->attackTarget(*mage);
+	cout << mage->exporter() << endl;
+
+	cout << "mage launch spell Dancing light to barbarian for " << mage->findSpell(dancingLight->getName()).getDamage() << endl;
+
+	mage->launchSpellAtTarget(*barbarian,mage->findSpell(dancingLight->getName()));
+	cout << barbarian->exporter() << endl;
+	//fin test interaction
+
 
 
 	//exportation fichier

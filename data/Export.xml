@@ -1,7 +1,7 @@
 <Character>
 	<class>Barbarian</class>
 	<name>Theo</name>
-	<HP>18</HP>
+	<HP>90</HP>
 	<damageBasicAttaque>25</damageBasicAttaque>
 	<listSpell>
 	</listSpell>
@@ -10,7 +10,7 @@
 <Character>
 	<class>Mage</class>
 	<name>Bob</name>
-	<HP>10</HP>
+	<HP>25</HP>
 	<damageBasicAttaque>5</damageBasicAttaque>
 	<listSpell>
 	<Spell>
@@ -42,6 +42,28 @@
 	<name>Victor</name>
 	<HP>100</HP>
 	<damageBasicAttaque>5</damageBasicAttaque>
+	<listSpell>
+	</listSpell>
+</Character>
+
+<Character>
+	<class>Mage</class>
+	<name>Serge</name>
+	<HP>9</HP>
+	<damageBasicAttaque>6</damageBasicAttaque>
+	<listSpell>
+	<Spell>
+		<name>Dancing light</name>
+		<damage>10</damage>
+	</Spell>
+	</listSpell>
+</Character>
+
+<Character>
+	<class>Archer</class>
+	<name>Shin</name>
+	<HP>10</HP>
+	<damageBasicAttaque>50</damageBasicAttaque>
 	<listSpell>
 	</listSpell>
 </Character>

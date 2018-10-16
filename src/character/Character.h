@@ -19,6 +19,8 @@ public:
 	virtual ~Character();
 	virtual void receiveDamage(float damage);
 	virtual void attackTarget(Character &target);
+	virtual void launchSpellAtTarget(Character &target, Spell &spell);
+	virtual Spell& findSpell(std::string name);
 	virtual string exporter();
 
 	virtual float getDamageBasicAttaque() const;
