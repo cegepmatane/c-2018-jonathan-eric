@@ -12,9 +12,12 @@ using namespace std;
 #include "Character/Character.h"
 #include "Character/Barbarian.h"
 #include "Character/Mage.h"
+#include "Character/Archer.h"
 #include "spell/Spell.h"
 #include "spell/DancingLight.h"
 #include "spell/smash.h"
+#include <vector>
+
 
 int main() {
 
@@ -23,63 +26,96 @@ int main() {
 	Spell *smash = new Smash();
 
 
-	vector<Character*> listeCharacter;
-
-
+	vector<Character*> listCharacter;
 
 
 
 	//import init
+
 	ifstream sourcePersonnages;
 	sourcePersonnages.open("data/Personnages.csv");
 	string ligne;
 
 	int indexPersonnage = 0;
+	bool firstLine = true;
 	while(!sourcePersonnages.eof())
 	{
+		if (firstLine)
+		{
+			getline(sourcePersonnages, ligne);
+			firstLine = false;
+		}
 
-		getline(sourcePersonnages,ligne);
+		else
+		{
+			getline(sourcePersonnages,ligne);
 
-		unsigned int positionDebut = 0;
-		unsigned int positionFin = 0; //unsigned int fait en sorte que -1 donne la valeur maximum d'un int
-		int indexColum = 0;
+			unsigned int positionDebut = 0;
+			unsigned int positionFin = 0; //unsigned int fait en sorte que -1 donne la valeur maximum d'un int
+			int indexColum = 0;
 
-		do{
-			positionFin = ligne.find(";", positionDebut);
+			do{
+				positionFin = ligne.find(";", positionDebut);
 
 
-			string valeur = ligne.substr(positionDebut,positionFin - positionDebut);
-			cout << valeur << endl;
+				string value = ligne.substr(positionDebut,positionFin - positionDebut);
+				cout << value << endl;
 
-			//cout << "position positionFin avant +1 : " << positionFin << endl;
-			//cout << "position positionFin après +1 : " << positionFin + 1 << endl;
+				switch(indexColum){
 
-			switch(indexColum){
+				case 0:
 
-			case 0:
+					if (value == "Barbarian")
+					{
+						listCharacter.push_back(new Barbarian());
+					} else if (value == "Mage"){
+						listCharacter.push_back(new Mage());
+					} else if (value == "Archer"){
+						listCharacter.push_back(new Archer());
+					}
 
-				switch(valeur){
-				case "Barbarian":
-						//do stuff
+
 					break;
+
+				case 1:
+					listCharacter[indexPersonnage]->setName(value);
+					break;
+
+				case 2:
+					listCharacter[indexPersonnage]->setHp(strtof((value).c_str(),0));
+					break;
+
+				case 3:
+					listCharacter[indexPersonnage]->setDamageBasicAttaque(strtof((value).c_str(),0));
+					break;
+
+				case 4:
+
+					if (value == "Smash")
+					{
+						listCharacter[indexPersonnage]->addSpell(smash);
+					}
+					else if (value == "DancingLight")
+					{
+						listCharacter[indexPersonnage]->addSpell(dancingLight);
+					}
+
+					break;
+
+				default:
+
+					break;
+
 				}
 
-				break;
-			}
+				positionDebut = positionFin + 1;
+				indexColum++;
+			}while(positionDebut != 0);
 
-			positionDebut = positionFin + 1;
-			indexColum++;
-		}while(positionDebut != 0);
+			indexPersonnage++;
+		}// fin boucle ligne
 
-		/*
-		cout << "La ligne est " << ligne << endl;
-		int positionPremiereVirgule = ligne.find(";", 0);//0 = position de départ de la recherche
-		cout << "Position de la premiere virgule " << positionPremiereVirgule << endl;
-		string mot = ligne.substr(0,positionPremiereVirgule);
-		cout << "Le premier mot découpé est " << mot << endl;
-		*/
-
-	}
+	}//fin lecture document
 
 
 	//fin import init
@@ -88,11 +124,11 @@ int main() {
 
 
 
+	//creation donne test
 
 	Character *barbarian = new Barbarian();
 	barbarian->setHp(18);
 	barbarian->setName("Theo");
-	//barbarian->getSpellListe().push_back()
 
 	Character *mage = new Mage();
 	mage->setHp(10);
@@ -100,16 +136,7 @@ int main() {
 	mage->addSpell(dancingLight);
 	mage->addSpell(spell);
 
-	for (unsigned int i = 0; i < mage->getSpellListe().size();i++)
-	{
-		cout << mage->getSpellListe()[i]->getName() << endl;
-	}
-
-	cout << barbarian->getHp() << endl;
-
-
-
-
+	//fin creation donne test
 
 
 	//exportation fichier
@@ -121,13 +148,18 @@ int main() {
 	{
 		monFlux << barbarian->exporter() << endl;
 		monFlux << mage->exporter() << endl;
+
+		for (unsigned int i = 0; i < listCharacter.size() ; i++)
+		{
+			monFlux << listCharacter[i]->exporter() << endl;
+		}
 	}
 	else
 	{
 		cout << "ERREUR: Impossible d'ouvrir le fichier." << endl;
 	}
 
-
+	//fin exportation
 
 
 	delete barbarian;

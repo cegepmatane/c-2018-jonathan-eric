@@ -24,3 +24,25 @@
 	</listSpell>
 </Character>
 
+<Character>
+	<class>Barbarian</class>
+	<name>Dominik</name>
+	<HP>50</HP>
+	<damageBasicAttaque>10</damageBasicAttaque>
+	<listSpell>
+	<Spell>
+		<name>Smash</name>
+		<damage>15</damage>
+	</Spell>
+	</listSpell>
+</Character>
+
+<Character>
+	<class>Barbarian</class>
+	<name>Victor</name>
+	<HP>100</HP>
+	<damageBasicAttaque>5</damageBasicAttaque>
+	<listSpell>
+	</listSpell>
+</Character>
+
