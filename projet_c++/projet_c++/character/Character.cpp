@@ -17,10 +17,6 @@ Character::Character() {
 
 Character::~Character() {
 	// TODO Auto-generated destructor stub
-	for (int i = 0; i < m_SpellListe.size(); i++)
-	{
-		delete m_SpellListe[i];
-	}
 }
 
 void Character::receiveDamage(float damage)
@@ -172,7 +168,11 @@ Character Character::operator+(Character & a_character)
 	character.m_HP = this->m_HP + a_character.getHp();
 	character.m_damageBasicAttaque = this->m_damageBasicAttaque + a_character.getDamageBasicAttaque();
 	character.m_Name = this->m_Name + " " + a_character.getName();
-	cout << character.m_HP << endl;
+	character.positionHorizontal = this->getHorizontal();
+	character.positionVertical = this->getVertical();
+	character.m_Class = this->m_Class;
+
+	//cout << character.m_HP << endl;
 	return character;
 
 }
