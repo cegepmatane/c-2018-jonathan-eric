@@ -45,6 +45,11 @@ Spell& Character::findSpell(std::string name)
 	return *spell;
 }
 
+void Character::display()
+{
+	cout << this->m_Name[0];
+}
+
 string Character::exporter()
 {
     stringstream xml;
@@ -100,4 +105,24 @@ void Character::setSpellListe(const vector<Spell*>& a_spellListe) {
 void Character::addSpell(Spell *a_spell)
 {
 	this->m_SpellListe.push_back(a_spell);
+}
+
+int Character::getX()
+{
+	return positionX;
+}
+
+int Character::getY()
+{
+	return positionY;
+}
+
+void Character::setX(float a_X)
+{
+	positionX = a_X;
+}
+
+void Character::setY(float a_Y)
+{
+	positionY = a_Y;
 }

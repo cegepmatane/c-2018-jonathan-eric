@@ -21,6 +21,7 @@ public:
 	virtual void attackTarget(Character &target);
 	virtual void launchSpellAtTarget(Character &target, Spell &spell);
 	virtual Spell& findSpell(std::string name);
+	virtual void display();
 	virtual string exporter();
 
 	virtual float getDamageBasicAttaque() const;
@@ -32,6 +33,12 @@ public:
 	virtual const vector<Spell*>& getSpellListe() const;
 	virtual void setSpellListe(const vector<Spell*>& a_spellListe);
 	virtual void addSpell(Spell *a_spell);
+	virtual int getX();
+	virtual int getY();
+	virtual void setX(float a_X);
+	virtual void setY(float a_Y);
+
+
 
 protected:
 	float m_HP;
@@ -39,6 +46,8 @@ protected:
 	float m_damageBasicAttaque;
 	vector<Spell*> m_SpellListe;
 	std::string m_Class;
+	int positionX;
+	int positionY;
 	
 	
 };
