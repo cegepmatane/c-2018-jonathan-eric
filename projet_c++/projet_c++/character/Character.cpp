@@ -17,6 +17,10 @@ Character::Character() {
 
 Character::~Character() {
 	// TODO Auto-generated destructor stub
+	for (int i = 0; i < m_SpellListe.size(); i++)
+	{
+		delete m_SpellListe[i];
+	}
 }
 
 void Character::receiveDamage(float damage)
@@ -31,8 +35,21 @@ void Character::attackTarget(Character &target)
 
 void Character::launchSpellAtTarget(Character &target, Spell &spell)
 {
-	target.receiveDamage(spell.getDamage());
+	switch (spell.getTypeOfSpell())
+	{
+	case Spell::spelltype::damage:
+		target.receiveDamage(spell.getDamage());
+		break;
+
+	case Spell::spelltype::soulEating:
+		*this = *this + target;
+		break;
+
+	default:
+		break;
+	}
 }
+
 
 Spell& Character::findSpell(std::string name)
 {
@@ -147,6 +164,17 @@ void Character::moveDown()
 void Character::moveUp()
 {
 	positionVertical--;
+}
+
+Character Character::operator+(Character & a_character)
+{
+	Character character;
+	character.m_HP = this->m_HP + a_character.getHp();
+	character.m_damageBasicAttaque = this->m_damageBasicAttaque + a_character.getDamageBasicAttaque();
+	character.m_Name = this->m_Name + " " + a_character.getName();
+	cout << character.m_HP << endl;
+	return character;
+
 }
 
 void Character::moveRight()

@@ -22,9 +22,13 @@ public:
 	void setName(const std::string& name);
 	virtual string exporter(string);
 
+	enum spelltype {damage = 1, soulEating = 2};
+	spelltype getTypeOfSpell();
+
 protected:
 	std::string m_Name;
 	float m_Damage;
+	spelltype typeOfSpell;
 };
 
 #endif /* SPELL_H_ */

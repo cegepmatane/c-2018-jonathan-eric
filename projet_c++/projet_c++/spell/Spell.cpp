@@ -11,7 +11,7 @@
 
 Spell::Spell() {
 	// TODO Auto-generated constructor stub
-
+	typeOfSpell = spelltype::damage;
 }
 
 Spell::~Spell() {
@@ -49,4 +49,9 @@ string Spell::exporter(string tabulation)
 
     xml << tabulation + "</Spell>" << endl;
     return xml.str();
+}
+
+Spell::spelltype Spell::getTypeOfSpell()
+{
+	return typeOfSpell;
 }

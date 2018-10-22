@@ -68,3 +68,16 @@
 	</listSpell>
 </Character>
 
+<Character>
+	<class>Mage</class>
+	<name>Guldan</name>
+	<HP>1</HP>
+	<damageBasicAttaque>1</damageBasicAttaque>
+	<listSpell>
+	<Spell>
+		<name>Soul Eater</name>
+		<damage>0</damage>
+	</Spell>
+	</listSpell>
+</Character>
+

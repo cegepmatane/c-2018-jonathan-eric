@@ -66,6 +66,9 @@
     <ClInclude Include="projet_c++.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="Spell\SoulEater.h">
+      <Filter>Fichiers d%27en-tête\Spell</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -103,6 +106,9 @@
     </ClCompile>
     <ClCompile Include="Case.cpp">
       <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="spell\SoulEater.cpp">
+      <Filter>Fichiers sources\Spell</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

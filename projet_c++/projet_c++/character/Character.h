@@ -20,6 +20,7 @@ public:
 	virtual void receiveDamage(float damage);
 	virtual void attackTarget(Character &target);
 	virtual void launchSpellAtTarget(Character &target, Spell &spell);
+
 	virtual Spell& findSpell(std::string name);
 	virtual void display();
 	virtual void displayStatistique();
@@ -46,6 +47,10 @@ public:
 	virtual void moveLeft();
 	virtual void moveDown();
 	virtual void moveUp();
+
+
+	Character operator+(Character &a_character);
+
 
 
 

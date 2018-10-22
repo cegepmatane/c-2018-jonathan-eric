@@ -159,6 +159,7 @@
     <ClInclude Include="Grille.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="projet_c++.h" />
+    <ClInclude Include="Spell\SoulEater.h" />
     <ClInclude Include="spell\DancingLight.h" />
     <ClInclude Include="spell\Fireball.h" />
     <ClInclude Include="spell\pch.h" />
@@ -179,6 +180,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="projet_c++.cpp" />
+    <ClCompile Include="spell\SoulEater.cpp" />
     <ClCompile Include="spell\DancingLight.cpp" />
     <ClCompile Include="spell\Fireball.cpp" />
     <ClCompile Include="spell\Smash.cpp" />
