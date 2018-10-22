@@ -22,6 +22,7 @@ public:
 	virtual void launchSpellAtTarget(Character &target, Spell &spell);
 	virtual Spell& findSpell(std::string name);
 	virtual void display();
+	virtual void displayStatistique();
 	virtual string exporter();
 
 	virtual float getDamageBasicAttaque() const;
@@ -33,10 +34,18 @@ public:
 	virtual const vector<Spell*>& getSpellListe() const;
 	virtual void setSpellListe(const vector<Spell*>& a_spellListe);
 	virtual void addSpell(Spell *a_spell);
-	virtual int getX();
-	virtual int getY();
-	virtual void setX(float a_X);
-	virtual void setY(float a_Y);
+
+
+	virtual int getVertical();
+	virtual int getHorizontal();
+	virtual void setVertical(float a_X);
+	virtual void setHorizontal(float a_Y);
+
+
+	virtual void moveRight();
+	virtual void moveLeft();
+	virtual void moveDown();
+	virtual void moveUp();
 
 
 
@@ -46,8 +55,8 @@ protected:
 	float m_damageBasicAttaque;
 	vector<Spell*> m_SpellListe;
 	std::string m_Class;
-	int positionX;
-	int positionY;
+	int positionVertical;
+	int positionHorizontal;
 	
 	
 };

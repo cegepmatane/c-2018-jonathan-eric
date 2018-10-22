@@ -13,6 +13,9 @@ public:
 	void select();
 	void unSelect();
 
+	bool hasCharacter();
+	Character *getCharacter();
+
 private:
 	Character *characterOnCase;
 	bool isSelected;

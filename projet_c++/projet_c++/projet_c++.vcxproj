@@ -158,6 +158,7 @@
     <ClInclude Include="character\Mage.h" />
     <ClInclude Include="Grille.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="projet_c++.h" />
     <ClInclude Include="spell\DancingLight.h" />
     <ClInclude Include="spell\Fireball.h" />
     <ClInclude Include="spell\pch.h" />

@@ -27,6 +27,8 @@ void Case::display()
 	cout << "[";
 	if (isSelected)
 		cout << ">";
+	else
+		cout << " ";
 
 	if (characterOnCase != 0)
 	{
@@ -39,6 +41,9 @@ void Case::display()
 
 	if (isSelected)
 		cout << "<";
+	else
+		cout << " ";
+
 	cout << "]";
 }
 
@@ -50,4 +55,18 @@ void Case::select()
 void Case::unSelect()
 {
 	isSelected = false;
+}
+
+bool Case::hasCharacter()
+{
+	if (characterOnCase != 0)
+		return true;
+
+	else
+		return false;
+}
+
+Character * Case::getCharacter()
+{
+	return characterOnCase;
 }

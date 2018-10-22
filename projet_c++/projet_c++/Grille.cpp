@@ -42,7 +42,7 @@ void Grille::display(vector<Character*> listCharacter)
 	//change character on case
 	for (int indexCharacter = 0; indexCharacter < listCharacter.size(); indexCharacter++)
 	{
-		arrayCase[(int)listCharacter[indexCharacter]->getX()][(int)listCharacter[indexCharacter]->getY()]->changeCharacter(listCharacter[indexCharacter]);
+		arrayCase[(int)listCharacter[indexCharacter]->getVertical()][(int)listCharacter[indexCharacter]->getHorizontal()]->changeCharacter(listCharacter[indexCharacter]);
 	}
 
 	//display
@@ -51,14 +51,15 @@ void Grille::display(vector<Character*> listCharacter)
 		for (int height = 0; height < configMap::mapHeight; height++)
 		{
 			arrayCase[width][height]->display();
+			//cout << width << height;
 		}
 		cout << endl;
 	}
 }
 
-void Grille::setCharacterAt(Character *character, int positionX, int positionY)
+void Grille::setCharacterAt(Character *character, int positionVertical, int positionHorizontal)
 {
-	arrayCase[positionX][positionY]->changeCharacter(character);
+	arrayCase[positionVertical][positionHorizontal]->changeCharacter(character);
 }
 
 void Grille::updateDisplay(vector<Character*> listCharacter)
@@ -67,10 +68,47 @@ void Grille::updateDisplay(vector<Character*> listCharacter)
 	display(listCharacter);
 }
 
-void Grille::selecteCase(int x, int y)
+void Grille::selecteCase(int horizontal, int vertical)
 {
 	if (selectedCase != 0)
 		selectedCase->unSelect();
-	arrayCase[x][y]->select();
-	selectedCase = (Case*)arrayCase[x][y];
+	arrayCase[vertical][horizontal]->select();
+	selectedCase = (Case*)arrayCase[vertical][horizontal];
+	selectedCaseHorizontal = horizontal;
+	selectedCaseVertical = vertical;
+}
+
+void Grille::moveSelectedCaseRight()
+{
+	selectedCaseHorizontal++;
+}
+
+void Grille::moveSelectedCaseLeft()
+{
+	selectedCaseHorizontal--;
+}
+
+void Grille::moveSelectedCaseUp()
+{
+	selectedCaseVertical--;
+}
+
+void Grille::moveSelectedCaseDown()
+{
+	selectedCaseVertical++;
+}
+
+int Grille::getSelectedHorizontal()
+{
+	return selectedCaseHorizontal;
+}
+
+int Grille::getSelectedVertical()
+{
+	return selectedCaseVertical;
+}
+
+Case * Grille::getselectedCase()
+{
+	return arrayCase[selectedCaseVertical][selectedCaseHorizontal];
 }

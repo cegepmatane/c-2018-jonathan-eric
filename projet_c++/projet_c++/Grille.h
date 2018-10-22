@@ -8,13 +8,24 @@ public:
 	~Grille();
 	void display(vector<Character*> listCharacter);
 	enum configMap {mapWidth = 10, mapHeight = 10};
-	void setCharacterAt(Character *character, int positionX, int positionY);
+	void setCharacterAt(Character *character, int positionVertical, int positionHorizontal);
 	void updateDisplay(vector<Character*> listCharacter);
-	void selecteCase(int x, int y);
+	void selecteCase(int horizontaly, int vertical);
 
+	void moveSelectedCaseRight();
+	void moveSelectedCaseLeft();
+	void moveSelectedCaseUp();
+	void moveSelectedCaseDown();
+
+	int getSelectedHorizontal();
+	int getSelectedVertical();
+	Case *getselectedCase();
 
 private:
-	Case *arrayCase[mapWidth][mapHeight];
+	
+	Case *arrayCase[mapHeight][mapWidth];
 	Case *selectedCase;
+	int selectedCaseVertical;
+	int selectedCaseHorizontal;
 };
 

@@ -50,6 +50,18 @@ void Character::display()
 	cout << this->m_Name[0];
 }
 
+void Character::displayStatistique()
+{
+	cout << "nom: " << m_Name << endl;
+	cout << "vie: " << m_HP << endl;
+	cout << "damage: " << m_damageBasicAttaque << endl;
+
+	for (int i = 0; i < m_SpellListe.size(); i++)
+	{
+		cout << "spell" << i + 1 << " : " << m_SpellListe[i]->getName() << " (" << m_SpellListe[i]->getDamage() << ")" << endl;
+	}
+}
+
 string Character::exporter()
 {
     stringstream xml;
@@ -107,22 +119,42 @@ void Character::addSpell(Spell *a_spell)
 	this->m_SpellListe.push_back(a_spell);
 }
 
-int Character::getX()
+int Character::getVertical()
 {
-	return positionX;
+	return positionVertical;
 }
 
-int Character::getY()
+int Character::getHorizontal()
 {
-	return positionY;
+	return positionHorizontal;
 }
 
-void Character::setX(float a_X)
+void Character::setVertical(float a_X)
 {
-	positionX = a_X;
+	positionVertical = a_X;
 }
 
-void Character::setY(float a_Y)
+void Character::setHorizontal(float a_Y)
 {
-	positionY = a_Y;
+	positionHorizontal = a_Y;
+}
+
+void Character::moveDown()
+{
+	positionVertical++;
+}
+
+void Character::moveUp()
+{
+	positionVertical--;
+}
+
+void Character::moveRight()
+{
+	positionHorizontal++;
+}
+
+void Character::moveLeft()
+{
+	positionHorizontal--;
 }
