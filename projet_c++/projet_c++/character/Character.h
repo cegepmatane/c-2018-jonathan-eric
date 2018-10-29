@@ -22,7 +22,7 @@ public:
 	virtual void launchSpellAtTarget(Character &target, Spell &spell);
 
 	virtual Spell& findSpell(std::string name);
-	virtual void display();
+	virtual void displayConsol();
 	virtual void displayStatistique();
 	virtual string exporter();
 

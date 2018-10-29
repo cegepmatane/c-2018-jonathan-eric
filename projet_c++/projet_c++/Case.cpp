@@ -4,6 +4,7 @@
 
 Case::Case()
 {
+	characterOnCase = 0;
 }
 
 
@@ -22,7 +23,7 @@ void Case::removeCharacterOnCase()
 	characterOnCase = 0;
 }
 
-void Case::display()
+void Case::displayConsol()
 {
 	cout << "[";
 	if (isSelected)
@@ -32,7 +33,7 @@ void Case::display()
 
 	if (characterOnCase != 0)
 	{
-		characterOnCase->display();
+		characterOnCase->displayConsol();
 	}
 	else
 	{

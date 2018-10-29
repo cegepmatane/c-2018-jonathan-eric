@@ -5,12 +5,12 @@
 Grille::Grille()
 {
 	selectedCase = 0;
-	for (int width = 0; width < configMap::mapWidth; width++)
+	for (int height = 0; height < configMap::mapHeight; height++)
 	{
-		for (int height = 0; height < configMap::mapHeight; height++)
+		for (int width = 0; width < configMap::mapWidth; width++)
 		{
-			arrayCase[width][height] = new Case();
-			cout <<" " << width << "-" << height;
+			arrayCase[height][width] = new Case();
+			//cout <<" " << height << "-" << width;
 		}
 		cout << endl;
 	}
@@ -19,23 +19,23 @@ Grille::Grille()
 
 Grille::~Grille()
 {
-	for (int width = 0; width < configMap::mapWidth; width++)
+	for (int height = 0; height < configMap::mapHeight; height++)
 	{
-		for (int height = 0; height < configMap::mapHeight; height++)
+		for (int width = 0; width < configMap::mapWidth; width++)
 		{
-			delete arrayCase[width][height];
+			delete arrayCase[height][width];
 		}
 	}
 }
 
-void Grille::display(vector<Character*> listCharacter)
+void Grille::displayConsol(vector<Character*> listCharacter)
 {
 	//remove character on case
-	for (int width = 0; width < configMap::mapWidth; width++)
+	for (int height = 0; height < configMap::mapHeight; height++)
 	{
-		for (int height = 0; height < configMap::mapHeight; height++)
+		for (int width = 0; width < configMap::mapWidth; width++)
 		{
-			arrayCase[width][height]->removeCharacterOnCase();
+			arrayCase[height][width]->removeCharacterOnCase();
 		}
 	}
 
@@ -45,13 +45,13 @@ void Grille::display(vector<Character*> listCharacter)
 		arrayCase[(int)listCharacter[indexCharacter]->getVertical()][(int)listCharacter[indexCharacter]->getHorizontal()]->changeCharacter(listCharacter[indexCharacter]);
 	}
 
-	//display
-	for (int width = 0; width < configMap::mapWidth; width++)
+	//displayConsol
+	for (int height = 0; height < configMap::mapHeight; height++)
 	{
-		for (int height = 0; height < configMap::mapHeight; height++)
+		for (int width = 0; width < configMap::mapWidth; width++)
 		{
-			arrayCase[width][height]->display();
-			//cout << width << height;
+			arrayCase[height][width]->displayConsol();
+			//cout << height << height;
 		}
 		cout << endl;
 	}
@@ -65,7 +65,7 @@ void Grille::setCharacterAt(Character *character, int positionVertical, int posi
 void Grille::updateDisplay(vector<Character*> listCharacter)
 {
 	system("cls");
-	display(listCharacter);
+	displayConsol(listCharacter);
 }
 
 void Grille::selecteCase(int horizontal, int vertical)

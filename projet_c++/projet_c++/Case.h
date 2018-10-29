@@ -9,7 +9,7 @@ public:
 	~Case();
 	void changeCharacter(Character *a_character);
 	void removeCharacterOnCase();
-	void display();
+	void displayConsol();
 	void select();
 	void unSelect();
 

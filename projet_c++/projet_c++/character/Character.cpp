@@ -17,6 +17,10 @@ Character::Character() {
 
 Character::~Character() {
 	// TODO Auto-generated destructor stub
+	for (int i = 0; i < m_SpellListe.size(); i++)
+	{
+		delete m_SpellListe[i];
+	 }
 }
 
 void Character::receiveDamage(float damage)
@@ -58,7 +62,7 @@ Spell& Character::findSpell(std::string name)
 	return *spell;
 }
 
-void Character::display()
+void Character::displayConsol()
 {
 	cout << this->m_Name[0];
 }
