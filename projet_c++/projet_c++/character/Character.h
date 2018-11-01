@@ -9,7 +9,7 @@
 #define CHARACTER_CHARACTER_H_
 #include "../spell/Spell.h"
 #include <vector>
-
+#include <SFML/Graphics.hpp>
 #include <iostream>
 using namespace std;
 
@@ -52,6 +52,15 @@ public:
 	Character operator+(Character &a_character);
 
 
+	virtual sf::Sprite* getSprite();
+	virtual void changePositionSprite(float x, float y);
+
+	string getPathSprite();
+
+	virtual void display(float x, float y, sf::RenderWindow * window);
+
+	virtual void loadSprite();
+
 
 
 protected:
@@ -62,6 +71,10 @@ protected:
 	std::string m_Class;
 	int positionVertical;
 	int positionHorizontal;
+	sf::Sprite *sprite;
+	sf::Texture textureCase;
+	string m_PathTexture = "..\\Ressource\\Character.png";
+
 	
 	
 };

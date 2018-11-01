@@ -1,5 +1,7 @@
 #pragma once
 #include "Case.h"
+#include <SFML/Graphics.hpp>
+
 
 class Grille
 {
@@ -7,6 +9,8 @@ public:
 	Grille();
 	~Grille();
 	void displayConsol(vector<Character*> listCharacter);
+	void update(vector<Character*> listCharacter);
+	void display(sf::RenderWindow * window);
 	enum configMap {mapHeight = 12, mapWidth = 18};
 	void setCharacterAt(Character *character, int positionVertical, int positionHorizontal);
 	void updateDisplay(vector<Character*> listCharacter);
@@ -20,6 +24,9 @@ public:
 	int getSelectedHorizontal();
 	int getSelectedVertical();
 	Case *getselectedCase();
+
+	void loadSpriteAllCharacter();
+
 
 private:
 	

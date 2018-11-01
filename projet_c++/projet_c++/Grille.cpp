@@ -9,7 +9,7 @@ Grille::Grille()
 	{
 		for (int width = 0; width < configMap::mapWidth; width++)
 		{
-			arrayCase[height][width] = new Case();
+			arrayCase[height][width] = new Case(width, height);
 			//cout <<" " << height << "-" << width;
 		}
 		cout << endl;
@@ -30,6 +30,22 @@ Grille::~Grille()
 
 void Grille::displayConsol(vector<Character*> listCharacter)
 {
+	update(listCharacter);
+
+	//displayConsol
+	for (int height = 0; height < configMap::mapHeight; height++)
+	{
+		for (int width = 0; width < configMap::mapWidth; width++)
+		{
+			arrayCase[height][width]->displayConsol();
+			//cout << height << height;
+		}
+		cout << endl;
+	}
+}
+
+void Grille::update(vector<Character*> listCharacter)
+{
 	//remove character on case
 	for (int height = 0; height < configMap::mapHeight; height++)
 	{
@@ -44,17 +60,18 @@ void Grille::displayConsol(vector<Character*> listCharacter)
 	{
 		arrayCase[(int)listCharacter[indexCharacter]->getVertical()][(int)listCharacter[indexCharacter]->getHorizontal()]->changeCharacter(listCharacter[indexCharacter]);
 	}
+}
 
-	//displayConsol
+void Grille::display(sf::RenderWindow *window)
+{
 	for (int height = 0; height < configMap::mapHeight; height++)
 	{
 		for (int width = 0; width < configMap::mapWidth; width++)
 		{
-			arrayCase[height][width]->displayConsol();
-			//cout << height << height;
+			arrayCase[height][width]->display(window);
+			//cout <<" " << height << "-" << width;
 		}
-		cout << endl;
-	}
+	}	
 }
 
 void Grille::setCharacterAt(Character *character, int positionVertical, int positionHorizontal)
@@ -112,3 +129,20 @@ Case * Grille::getselectedCase()
 {
 	return arrayCase[selectedCaseVertical][selectedCaseHorizontal];
 }
+
+void Grille::loadSpriteAllCharacter()
+{
+	for (int height = 0; height < configMap::mapHeight; height++)
+	{
+		for (int width = 0; width < configMap::mapWidth; width++)
+		{
+			if (arrayCase[height][width]->hasCharacter())
+			{
+				arrayCase[height][width]->getCharacter()->loadSprite();
+			}
+			//cout <<" " << height << "-" << width;
+		}
+	}
+}
+
+

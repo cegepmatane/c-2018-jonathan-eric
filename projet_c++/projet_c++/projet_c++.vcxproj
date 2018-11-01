@@ -198,6 +198,14 @@
     <ClCompile Include="spell\Smash.cpp" />
     <ClCompile Include="spell\Spell.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Ressource\Character.png" />
+    <Image Include="..\Ressource\flower.jpg" />
+    <Image Include="..\Ressource\grass.jpg" />
+    <Image Include="..\Ressource\grass2.jpg" />
+    <Image Include="..\Ressource\Mage.png" />
+    <Image Include="..\Ressource\rock.jpg" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

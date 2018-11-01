@@ -13,6 +13,7 @@ Character::Character() {
 
 	m_Class = "Character";
 	m_damageBasicAttaque = 10;
+	
 }
 
 Character::~Character() {
@@ -175,10 +176,18 @@ Character Character::operator+(Character & a_character)
 	character.positionHorizontal = this->getHorizontal();
 	character.positionVertical = this->getVertical();
 	character.m_Class = this->m_Class;
+	character.sprite = this->sprite;
+	character.textureCase = this->textureCase;
+	character.m_PathTexture = this->m_PathTexture;
 
 	//cout << character.m_HP << endl;
 	return character;
 
+}
+
+sf::Sprite* Character::getSprite()
+{
+	return sprite;
 }
 
 void Character::moveRight()
@@ -189,4 +198,30 @@ void Character::moveRight()
 void Character::moveLeft()
 {
 	positionHorizontal--;
+}
+
+void Character::changePositionSprite(float x, float y)
+{
+	sprite->setPosition(x, y);
+}
+
+string Character::getPathSprite()
+{
+	return m_PathTexture;
+}
+
+void Character::display(float x, float y, sf::RenderWindow *window)
+{
+	sprite->setPosition(x, y);
+	//cout << m_PathTexture << endl;
+	window->draw(*sprite);
+}
+
+void Character::loadSprite()
+{
+	sprite = NULL;
+	if (textureCase.loadFromFile(m_PathTexture))
+	{
+		sprite = new sf::Sprite(textureCase);
+	}
 }

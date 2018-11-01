@@ -111,4 +111,24 @@
       <Filter>Fichiers sources\Spell</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Ressource\flower.jpg">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="..\Ressource\grass.jpg">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="..\Ressource\grass2.jpg">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="..\Ressource\rock.jpg">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="..\Ressource\Character.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="..\Ressource\Mage.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+  </ItemGroup>
 </Project>
