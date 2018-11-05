@@ -44,6 +44,7 @@ Case::Case(float posX, float posY)
 Case::~Case()
 {
 	delete sprite;
+	delete spriteSelect;
 }
 
 void Case::changeCharacter(Character *a_character)
@@ -86,7 +87,7 @@ void Case::select(Case::TYPE_OF_SELECT selectionType)
 	isSelected = true;
 	this->typeOfSelection = typeOfSelection;
 
-	spriteSelect = NULL;
+	delete spriteSelect;
 	switch (selectionType)
 	{
 

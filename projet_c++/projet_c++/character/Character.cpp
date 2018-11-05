@@ -22,6 +22,7 @@ Character::~Character() {
 	{
 		delete m_SpellListe[i];
 	 }
+	delete sprite;
 }
 
 void Character::receiveDamage(float damage)

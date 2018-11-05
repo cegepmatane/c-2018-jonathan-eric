@@ -36,7 +36,7 @@
 <Character>
 	<class>Archer</class>
 	<name>Shin</name>
-	<HP>4</HP>
+	<HP>10</HP>
 	<damageBasicAttaque>50</damageBasicAttaque>
 	<listSpell>
 	</listSpell>
