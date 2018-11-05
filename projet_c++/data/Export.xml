@@ -23,7 +23,7 @@
 <Character>
 	<class>Mage</class>
 	<name>Serge</name>
-	<HP>4</HP>
+	<HP>9</HP>
 	<damageBasicAttaque>6</damageBasicAttaque>
 	<listSpell>
 	<Spell>
@@ -44,14 +44,10 @@
 
 <Character>
 	<class>Mage</class>
-	<name>Guldan</name>
-	<HP>1</HP>
-	<damageBasicAttaque>1</damageBasicAttaque>
+	<name>Guldan Shin</name>
+	<HP>11</HP>
+	<damageBasicAttaque>51</damageBasicAttaque>
 	<listSpell>
-	<Spell>
-		<name>Soul Eater</name>
-		<damage>0</damage>
-	</Spell>
 	</listSpell>
 </Character>
 

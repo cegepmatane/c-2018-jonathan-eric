@@ -146,7 +146,14 @@ void Case::display(sf::RenderWindow* window)
 		//cout << " : " << characterOnCase->getPathSprite() << endl;
 		//characterOnCase->changePositionSprite(m_PosX * WIDTH, m_PosY * HEIGHT);
 		//window->draw(*(characterOnCase->getSprite()));
+		cout << "x: " << m_PosX;
+		cout << " y: " << m_PosY;
+		cout << "  window:" << window << endl;
+		cout << " character: " << characterOnCase;
+	
+		
 		characterOnCase->display(m_PosX * WIDTH, m_PosY * HEIGHT, window);
+
 	}
 	if (isSelected)
 	{

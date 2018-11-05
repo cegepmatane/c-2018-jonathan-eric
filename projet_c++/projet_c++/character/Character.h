@@ -72,7 +72,7 @@ protected:
 	int positionVertical;
 	int positionHorizontal;
 	sf::Sprite *sprite;
-	sf::Texture textureCase;
+	sf::Texture texture;
 	string m_PathTexture = "..\\Ressource\\Character.png";
 
 	

@@ -178,7 +178,7 @@ Character Character::operator+(Character & a_character)
 	character.positionVertical = this->getVertical();
 	character.m_Class = this->m_Class;
 	character.sprite = this->sprite;
-	character.textureCase = this->textureCase;
+	character.texture = this->texture;
 	character.m_PathTexture = this->m_PathTexture;
 
 	//cout << character.m_HP << endl;
@@ -214,15 +214,18 @@ string Character::getPathSprite()
 void Character::display(float x, float y, sf::RenderWindow *window)
 {
 	sprite->setPosition(x, y);
+	cout << " characterSprite: " << sprite;
+
 	//cout << m_PathTexture << endl;
+	cout << " characterWindow: " << window;
 	window->draw(*sprite);
 }
 
 void Character::loadSprite()
 {
-	sprite = NULL;
-	if (textureCase.loadFromFile(m_PathTexture))
+	delete sprite;
+	if (texture.loadFromFile(m_PathTexture))
 	{
-		sprite = new sf::Sprite(textureCase);
+		sprite = new sf::Sprite(texture);
 	}
 }
