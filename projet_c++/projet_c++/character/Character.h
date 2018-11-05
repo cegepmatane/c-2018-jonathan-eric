@@ -33,7 +33,6 @@ public:
 	virtual const std::string getName();
 	virtual void setName(std::string a_name);
 	virtual const vector<Spell*>& getSpellListe() const;
-	virtual void setSpellListe(const vector<Spell*>& a_spellListe);
 	virtual void addSpell(Spell *a_spell);
 
 
@@ -51,11 +50,6 @@ public:
 
 	Character operator+(Character &a_character);
 
-
-	virtual sf::Sprite* getSprite();
-	virtual void changePositionSprite(float x, float y);
-
-	string getPathSprite();
 
 	virtual void display(float x, float y, sf::RenderWindow * window);
 

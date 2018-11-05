@@ -8,12 +8,11 @@
 #include "Archer.h"
 
 Archer::Archer() {
-	// TODO Auto-generated constructor stub
 	m_Class = "Archer";
 	m_damageBasicAttaque = 10;
 }
 
 Archer::~Archer() {
-	// TODO Auto-generated destructor stub
+
 }
 

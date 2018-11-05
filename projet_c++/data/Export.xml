@@ -1,7 +1,7 @@
 <Character>
 	<class>Barbarian</class>
 	<name>Dominik</name>
-	<HP>50</HP>
+	<HP>39</HP>
 	<damageBasicAttaque>10</damageBasicAttaque>
 	<listSpell>
 	<Spell>
@@ -14,7 +14,7 @@
 <Character>
 	<class>Barbarian</class>
 	<name>Victor</name>
-	<HP>100</HP>
+	<HP>85</HP>
 	<damageBasicAttaque>5</damageBasicAttaque>
 	<listSpell>
 	</listSpell>
@@ -23,7 +23,7 @@
 <Character>
 	<class>Mage</class>
 	<name>Serge</name>
-	<HP>9</HP>
+	<HP>-1</HP>
 	<damageBasicAttaque>6</damageBasicAttaque>
 	<listSpell>
 	<Spell>
@@ -44,9 +44,9 @@
 
 <Character>
 	<class>Mage</class>
-	<name>Guldan Shin</name>
-	<HP>11</HP>
-	<damageBasicAttaque>51</damageBasicAttaque>
+	<name>Guldan Dominik</name>
+	<HP>51</HP>
+	<damageBasicAttaque>11</damageBasicAttaque>
 	<listSpell>
 	</listSpell>
 </Character>

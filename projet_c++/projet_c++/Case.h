@@ -18,8 +18,7 @@ public:
 	void removeCharacterOnCase();
 	void displayConsol();
 	void select(TYPE_OF_SELECT selectionType);
-	//void select(int typeOfSelection);
-	//void select();
+	void tryLoadSpriteSelect(string path);
 	void unSelect();
 	void display(sf::RenderWindow* window);
 
@@ -28,7 +27,6 @@ public:
 	bool hasCharacter();
 	Character *getCharacter();
 
-	sf::Sprite* getTexture();
 
 private:
 	float WIDTH = 32;
@@ -41,7 +39,7 @@ private:
 	sf::Sprite *spriteSelect;
 	sf::Texture textureSelect;
 
-	string PATH_CASE_SELECTE;
+	string PATH_CASE_SELECT;
 	string PATH_CASE_TARGET;
 
 	float m_PosX, m_PosY;

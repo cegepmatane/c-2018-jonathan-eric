@@ -10,12 +10,11 @@
 
 
 Spell::Spell() {
-	// TODO Auto-generated constructor stub
 	typeOfSpell = spelltype::damage;
 }
 
 Spell::~Spell() {
-	// TODO Auto-generated destructor stub
+
 }
 
 Spell::Spell(std::string a_Name,float a_Damage)

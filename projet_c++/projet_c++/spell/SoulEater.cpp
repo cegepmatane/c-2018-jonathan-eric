@@ -2,14 +2,13 @@
 #include "SoulEater.h"
 
 
-SoulEater::SoulEater()
-{
+SoulEater::SoulEater() {
 	typeOfSpell = spelltype::soulEating;
 	m_Name = "Soul Eater";
 	m_Damage = 0;
 }
 
 
-SoulEater::~SoulEater()
-{
+SoulEater::~SoulEater() {
+
 }

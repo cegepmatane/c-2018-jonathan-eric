@@ -8,13 +8,12 @@
 #include "Mage.h"
 
 Mage::Mage() {
-	// TODO Auto-generated constructor stub
 	m_Class = "Mage";
 	m_PathTexture = "..\\Ressource\\Mage.png";
 	m_damageBasicAttaque = 5;
 }
 
 Mage::~Mage() {
-	// TODO Auto-generated destructor stub
+
 }
 

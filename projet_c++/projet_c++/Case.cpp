@@ -18,13 +18,8 @@ Case::Case(float posX, float posY)
 		"..\\Ressource\\grass2.jpg"};
 
 
-	PATH_CASE_SELECTE = "..\\Ressource\\selection.png";
+	PATH_CASE_SELECT = "..\\Ressource\\selection.png";
 	PATH_CASE_TARGET = "..\\Ressource\\target.png";
-
-
-
-	//cout << rand() % (listPathRessource.size()) << endl;
-
 
 	string path = listPathRessource[rand() % (listPathRessource.size())];
 
@@ -88,27 +83,33 @@ void Case::select(Case::TYPE_OF_SELECT selectionType)
 	this->typeOfSelection = typeOfSelection;
 
 	delete spriteSelect;
+
 	switch (selectionType)
 	{
 
 	case Case::TYPE_OF_SELECT::caseSelect:
-		if (textureSelect.loadFromFile(PATH_CASE_SELECTE))
-		{
-			spriteSelect = new sf::Sprite(textureSelect);
-			spriteSelect->setPosition(m_PosX * WIDTH, m_PosY * HEIGHT);
-		}
-		break;
 
+		tryLoadSpriteSelect(PATH_CASE_SELECT);
+
+		break;
 
 	case Case::TYPE_OF_SELECT::caseTarget:
-		if (textureSelect.loadFromFile(PATH_CASE_TARGET))
-		{
-			spriteSelect = new sf::Sprite(textureSelect);
-			spriteSelect->setPosition(m_PosX * WIDTH, m_PosY * HEIGHT);
-		}
+
+		tryLoadSpriteSelect(PATH_CASE_TARGET);
+
 		break;
+
 	default:
 		break;
+	}
+}
+
+void Case::tryLoadSpriteSelect(string path)
+{
+	if (textureSelect.loadFromFile(path))
+	{
+		spriteSelect = new sf::Sprite(textureSelect);
+		spriteSelect->setPosition(m_PosX * WIDTH, m_PosY * HEIGHT);
 	}
 }
 
@@ -132,28 +133,12 @@ Character * Case::getCharacter()
 	return characterOnCase;
 }
 
-sf::Sprite* Case::getTexture()
-{
-	return sprite;
-}
-
 void Case::display(sf::RenderWindow* window)
 {
 	window->draw(*sprite);
 	if (hasCharacter())
 	{
-		//characterOnCase->displayConsol();
-		//cout << " : " << characterOnCase->getPathSprite() << endl;
-		//characterOnCase->changePositionSprite(m_PosX * WIDTH, m_PosY * HEIGHT);
-		//window->draw(*(characterOnCase->getSprite()));
-		cout << "x: " << m_PosX;
-		cout << " y: " << m_PosY;
-		cout << "  window:" << window << endl;
-		cout << " character: " << characterOnCase;
-	
-		
 		characterOnCase->display(m_PosX * WIDTH, m_PosY * HEIGHT, window);
-
 	}
 	if (isSelected)
 	{

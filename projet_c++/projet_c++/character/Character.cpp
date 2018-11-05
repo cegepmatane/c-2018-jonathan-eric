@@ -9,21 +9,22 @@
 #include "sstream"
 
 Character::Character() {
-	// TODO Auto-generated constructor stub
 
 	m_Class = "Character";
 	m_damageBasicAttaque = 10;
-	
 }
 
 Character::~Character() {
-	// TODO Auto-generated destructor stub
+
 	for (int i = 0; i < m_SpellListe.size(); i++)
 	{
 		delete m_SpellListe[i];
 	 }
-	delete sprite;
+	//delete sprite; //cause un crash avec l'addition de "character" a l'appel de "display"
 }
+
+//interaction between class
+#pragma region GameplayInteraction
 
 void Character::receiveDamage(float damage)
 {
@@ -52,54 +53,10 @@ void Character::launchSpellAtTarget(Character &target, Spell &spell)
 	}
 }
 
-
-Spell& Character::findSpell(std::string name)
-{
-	for (unsigned int i = 0; i < this->m_SpellListe.size() ; i++)
-	{
-		if (this->m_SpellListe[i]->getName() == name)
-			return *m_SpellListe[i];
-	}
-	Spell *spell(0);
-	return *spell;
-}
-
-void Character::displayConsol()
-{
-	cout << this->m_Name[0];
-}
-
-void Character::displayStatistique()
-{
-	cout << "nom: " << m_Name << endl;
-	cout << "vie: " << m_HP << endl;
-	cout << "damage: " << m_damageBasicAttaque << endl;
-
-	for (int i = 0; i < m_SpellListe.size(); i++)
-	{
-		cout << "spell" << i + 1 << " : " << m_SpellListe[i]->getName() << " (" << m_SpellListe[i]->getDamage() << ")" << endl;
-	}
-}
-
-string Character::exporter()
-{
-    stringstream xml;
-    xml << "<Character>" << endl;
-    xml << "\t<class>" << m_Class << "</class>" << endl;
-    xml << "\t<name>" << m_Name << "</name>" << endl;
-    xml << "\t<HP>" << m_HP <<"</HP>" << endl;
-    xml << "\t<damageBasicAttaque>" << m_damageBasicAttaque <<"</damageBasicAttaque>" << endl;
-    xml << "\t<listSpell>" << endl;
-    for (unsigned int i = 0; i < m_SpellListe.size() ; i++)
-    {
-    	xml << m_SpellListe[i]->exporter("\t");
-    }
-    xml << "\t</listSpell>" << endl;
-    xml << "</Character>" << endl;
-    return xml.str();
-}
+#pragma endregion
 
 
+#pragma region setter/getter
 
 float Character::getDamageBasicAttaque() const {
 	return m_damageBasicAttaque;
@@ -129,14 +86,22 @@ const vector<Spell*>& Character::getSpellListe() const {
 	return m_SpellListe;
 }
 
-void Character::setSpellListe(const vector<Spell*>& a_spellListe) {
-	this->m_SpellListe = a_spellListe;
-}
-
 void Character::addSpell(Spell *a_spell)
 {
 	this->m_SpellListe.push_back(a_spell);
 }
+
+Spell& Character::findSpell(std::string name)
+{
+	for (unsigned int i = 0; i < this->m_SpellListe.size(); i++)
+	{
+		if (this->m_SpellListe[i]->getName() == name)
+			return *m_SpellListe[i];
+	}
+	Spell *spell(0);
+	return *spell;
+}
+
 
 int Character::getVertical()
 {
@@ -158,6 +123,48 @@ void Character::setHorizontal(float a_Y)
 	positionHorizontal = a_Y;
 }
 
+#pragma endregion
+
+
+#pragma region Graphique
+
+void Character::loadSprite()
+{
+	delete sprite;
+	if (texture.loadFromFile(m_PathTexture))
+	{
+		sprite = new sf::Sprite(texture);
+	}
+}
+
+void Character::display(float x, float y, sf::RenderWindow *window)
+{
+	sprite->setPosition(x, y);
+	window->draw(*sprite);
+}
+
+void Character::displayConsol()
+{
+	cout << this->m_Name[0];
+}
+
+void Character::displayStatistique()
+{
+	cout << "nom: " << m_Name << endl;
+	cout << "vie: " << m_HP << endl;
+	cout << "damage: " << m_damageBasicAttaque << endl;
+
+	for (int i = 0; i < m_SpellListe.size(); i++)
+	{
+		cout << "spell" << i + 1 << " : " << m_SpellListe[i]->getName() << " (" << m_SpellListe[i]->getDamage() << ")" << endl;
+	}
+}
+
+#pragma endregion
+
+//action on class from input
+#pragma region controlAction
+
 void Character::moveDown()
 {
 	positionVertical++;
@@ -167,6 +174,21 @@ void Character::moveUp()
 {
 	positionVertical--;
 }
+
+void Character::moveRight()
+{
+	positionHorizontal++;
+}
+
+void Character::moveLeft()
+{
+	positionHorizontal--;
+}
+
+#pragma endregion
+
+
+#pragma region SpecialOperation
 
 Character Character::operator+(Character & a_character)
 {
@@ -186,46 +208,22 @@ Character Character::operator+(Character & a_character)
 
 }
 
-sf::Sprite* Character::getSprite()
+string Character::exporter()
 {
-	return sprite;
-}
-
-void Character::moveRight()
-{
-	positionHorizontal++;
-}
-
-void Character::moveLeft()
-{
-	positionHorizontal--;
-}
-
-void Character::changePositionSprite(float x, float y)
-{
-	sprite->setPosition(x, y);
-}
-
-string Character::getPathSprite()
-{
-	return m_PathTexture;
-}
-
-void Character::display(float x, float y, sf::RenderWindow *window)
-{
-	sprite->setPosition(x, y);
-	cout << " characterSprite: " << sprite;
-
-	//cout << m_PathTexture << endl;
-	cout << " characterWindow: " << window;
-	window->draw(*sprite);
-}
-
-void Character::loadSprite()
-{
-	delete sprite;
-	if (texture.loadFromFile(m_PathTexture))
+	stringstream xml;
+	xml << "<Character>" << endl;
+	xml << "\t<class>" << m_Class << "</class>" << endl;
+	xml << "\t<name>" << m_Name << "</name>" << endl;
+	xml << "\t<HP>" << m_HP << "</HP>" << endl;
+	xml << "\t<damageBasicAttaque>" << m_damageBasicAttaque << "</damageBasicAttaque>" << endl;
+	xml << "\t<listSpell>" << endl;
+	for (unsigned int i = 0; i < m_SpellListe.size(); i++)
 	{
-		sprite = new sf::Sprite(texture);
+		xml << m_SpellListe[i]->exporter("\t");
 	}
+	xml << "\t</listSpell>" << endl;
+	xml << "</Character>" << endl;
+	return xml.str();
 }
+
+#pragma endregion
