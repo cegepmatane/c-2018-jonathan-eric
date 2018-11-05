@@ -18,6 +18,10 @@ Case::Case(float posX, float posY)
 		"..\\Ressource\\grass2.jpg"};
 
 
+	PATH_CASE_SELECTE = "..\\Ressource\\selection.png";
+	PATH_CASE_TARGET = "..\\Ressource\\target.png";
+
+
 
 	//cout << rand() % (listPathRessource.size()) << endl;
 
@@ -77,14 +81,40 @@ void Case::displayConsol()
 	cout << "]";
 }
 
-void Case::select()
+void Case::select(Case::TYPE_OF_SELECT selectionType)
 {
 	isSelected = true;
+	this->typeOfSelection = typeOfSelection;
+
+	spriteSelect = NULL;
+	switch (selectionType)
+	{
+
+	case Case::TYPE_OF_SELECT::caseSelect:
+		if (textureSelect.loadFromFile(PATH_CASE_SELECTE))
+		{
+			spriteSelect = new sf::Sprite(textureSelect);
+			spriteSelect->setPosition(m_PosX * WIDTH, m_PosY * HEIGHT);
+		}
+		break;
+
+
+	case Case::TYPE_OF_SELECT::caseTarget:
+		if (textureSelect.loadFromFile(PATH_CASE_TARGET))
+		{
+			spriteSelect = new sf::Sprite(textureSelect);
+			spriteSelect->setPosition(m_PosX * WIDTH, m_PosY * HEIGHT);
+		}
+		break;
+	default:
+		break;
+	}
 }
 
 void Case::unSelect()
 {
 	isSelected = false;
+	this->typeOfSelection = TYPE_OF_SELECT::caseUnselected;
 }
 
 bool Case::hasCharacter()
@@ -116,5 +146,9 @@ void Case::display(sf::RenderWindow* window)
 		//characterOnCase->changePositionSprite(m_PosX * WIDTH, m_PosY * HEIGHT);
 		//window->draw(*(characterOnCase->getSprite()));
 		characterOnCase->display(m_PosX * WIDTH, m_PosY * HEIGHT, window);
+	}
+	if (isSelected)
+	{
+		window->draw(*spriteSelect);
 	}
 }

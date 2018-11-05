@@ -14,7 +14,8 @@ public:
 	enum configMap {mapHeight = 12, mapWidth = 18};
 	void setCharacterAt(Character *character, int positionVertical, int positionHorizontal);
 	void updateDisplay(vector<Character*> listCharacter);
-	void selecteCase(int horizontaly, int vertical);
+	void selecteCase(int horizontal, int vertical, Case::TYPE_OF_SELECT typeOfSelection);
+	//void selecteCase(int horizontaly, int vertical);
 
 	void moveSelectedCaseRight();
 	void moveSelectedCaseLeft();

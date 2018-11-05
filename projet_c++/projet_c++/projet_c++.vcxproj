@@ -200,11 +200,13 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Ressource\Character.png" />
+    <Image Include="..\Ressource\target.png" />
     <Image Include="..\Ressource\flower.jpg" />
     <Image Include="..\Ressource\grass.jpg" />
     <Image Include="..\Ressource\grass2.jpg" />
     <Image Include="..\Ressource\Mage.png" />
     <Image Include="..\Ressource\rock.jpg" />
+    <Image Include="..\Ressource\selection.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

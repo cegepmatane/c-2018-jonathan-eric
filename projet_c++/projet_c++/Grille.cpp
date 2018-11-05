@@ -85,11 +85,11 @@ void Grille::updateDisplay(vector<Character*> listCharacter)
 	displayConsol(listCharacter);
 }
 
-void Grille::selecteCase(int horizontal, int vertical)
+void Grille::selecteCase(int horizontal, int vertical, Case::TYPE_OF_SELECT typeOfSelection)
 {
 	if (selectedCase != 0)
 		selectedCase->unSelect();
-	arrayCase[vertical][horizontal]->select();
+	arrayCase[vertical][horizontal]->select(typeOfSelection);
 	selectedCase = (Case*)arrayCase[vertical][horizontal];
 	selectedCaseHorizontal = horizontal;
 	selectedCaseVertical = vertical;

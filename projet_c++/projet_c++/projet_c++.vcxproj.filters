@@ -130,5 +130,11 @@
     <Image Include="..\Ressource\Mage.png">
       <Filter>Fichiers de ressources</Filter>
     </Image>
+    <Image Include="..\Ressource\selection.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="..\Ressource\target.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
   </ItemGroup>
 </Project>

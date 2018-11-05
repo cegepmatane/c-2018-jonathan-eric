@@ -23,7 +23,7 @@
 <Character>
 	<class>Mage</class>
 	<name>Serge</name>
-	<HP>9</HP>
+	<HP>4</HP>
 	<damageBasicAttaque>6</damageBasicAttaque>
 	<listSpell>
 	<Spell>
@@ -36,7 +36,7 @@
 <Character>
 	<class>Archer</class>
 	<name>Shin</name>
-	<HP>10</HP>
+	<HP>4</HP>
 	<damageBasicAttaque>50</damageBasicAttaque>
 	<listSpell>
 	</listSpell>
